@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/riburk/tts-cutter-research.git"
+  },
+  "author": "Rich Burkhardt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riburk/tts-cutter-research/issues"
+  },
+  "homepage": "https://github.com/riburk/tts-cutter-research#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "media-split": "^5.0.0"
+  }
+}

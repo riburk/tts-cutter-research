@@ -1,9 +1,11 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
+import {AudioService} from '../providers/audio.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AudioService]
 })
 export class AppComponent {
   @ViewChild('#speechText') speechText: ElementRef;
@@ -22,6 +24,7 @@ export class AppComponent {
     '\n' +
     'Take a look at some examples of sets, elements, and subsets.'
 
+  constructor(private audioService: AudioService) { }
 
   selectionchange(ev: any) {
     this.start = this.start = ev.target.selectionStart;
@@ -29,11 +32,12 @@ export class AppComponent {
   }
 
   onclick(ev: any) {
-    // mp3cutter.cut({
-    //   src: '../assets/speech_math.mp3',
-    //   target: `../assets/target.mp3`,
-    //   start: 5,
-    //   end: 10
-    // });
+    this.audioService.clipMp3().subscribe(() => {
+        console.log('success');
+      },
+      err => {
+        console.log(err);
+      });
+
   }
 }
